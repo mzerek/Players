@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView2"
         android:layout_below="@+id/TextView2"
-        android:layout_marginTop="20dp"
         android:background="#FFFFFF"
         android:text=""
         android:width="100dp" />
@@ -26,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView1"
         android:layout_below="@+id/TextView1"
-        android:layout_marginTop="18dp"
         android:background="#FFFFFF"
         android:text=""
         android:width="100dp" />
@@ -37,7 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView3"
         android:layout_below="@+id/TextView3"
-        android:layout_marginTop="18dp"
         android:background="#FFFFFF"
         android:text=""
         android:width="100dp" />
@@ -48,18 +45,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView4"
         android:layout_below="@+id/TextView4"
-        android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
-        android:text=""
-        android:width="100dp" />
-
-    <TextView
-        android:id="@+id/TextView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView4"
-        android:layout_alignBottom="@+id/TextView4"
-        android:layout_alignLeft="@+id/TextView8"
         android:background="#FFFFFF"
         android:text=""
         android:width="100dp" />
@@ -75,81 +60,6 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/TextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_marginRight="22dp"
-        android:layout_marginTop="32dp"
-        android:layout_toLeftOf="@+id/button1"
-        android:background="#FFFFFF"
-        android:text=""
-        android:width="100dp" />
-
-    <TextView
-        android:id="@+id/TextView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView5"
-        android:layout_alignBottom="@+id/TextView5"
-        android:layout_alignLeft="@+id/TextView9"
-        android:background="#FFFFFF"
-        android:text=""
-        android:width="100dp" />
-
-    <TextView
-        android:id="@+id/TextView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView2"
-        android:layout_alignLeft="@+id/TextView7"
-        android:background="#FFFFFF"
-        android:text=""
-        android:width="100dp" />
-
-    <TextView
-        android:id="@+id/TextView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView3"
-        android:layout_alignBottom="@+id/TextView3"
-        android:layout_marginLeft="17dp"
-        android:layout_toRightOf="@+id/textView2"
-        android:background="#FFFFFF"
-        android:text=""
-        android:width="100dp" />
-
-    <TextView
-        android:id="@+id/TextView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView3"
-        android:layout_alignLeft="@+id/TextView8"
-        android:background="#FFFFFF"
-        android:text=""
-        android:width="100dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:minHeight="20dp"
-        android:minWidth="30dp"
-        android:text="Reload"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:text="Losuj"
-        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/TextView01"
@@ -175,5 +85,118 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TextView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView5"
+        android:layout_below="@+id/TextView5"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView11"
+        android:layout_below="@+id/TextView11"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextView01"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/button2"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView12"
+        android:layout_alignBottom="@+id/TextView12"
+        android:layout_toRightOf="@+id/button2"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView12"
+        android:layout_alignLeft="@+id/TextView14"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView11"
+        android:layout_alignLeft="@+id/TextView13"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView5"
+        android:layout_alignLeft="@+id/TextView10"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView4"
+        android:layout_alignLeft="@+id/TextView9"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/TextView3"
+        android:layout_alignLeft="@+id/TextView8"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <TextView
+        android:id="@+id/TextView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView1"
+        android:layout_alignBottom="@+id/TextView1"
+        android:layout_alignLeft="@+id/TextView7"
+        android:background="#FFFFFF"
+        android:width="100dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/TextView9"
+        android:layout_centerHorizontal="true"
+        android:text="Losuj"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextView14"
+        android:layout_centerHorizontal="true"
+        android:minHeight="20dp"
+        android:minWidth="30dp"
+        android:text="Reload"
+        android:textSize="16sp" />
 
 </RelativeLayout>

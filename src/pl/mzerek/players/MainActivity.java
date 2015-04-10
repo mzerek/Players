@@ -26,10 +26,10 @@ import com.example.players.R;
 public class MainActivity extends Activity {
 
 	public static String[] members = readFromFile();
-		
-//		{ "Robert", "Kamil", "Darek",
-//			"Piotrek", "Maciek", "Damian N.", "Arek", "Marek", "Damian M.",
-//			"Rafal" };
+
+	// { "Robert", "Kamil", "Darek",
+	// "Piotrek", "Maciek", "Damian N.", "Arek", "Marek", "Damian M.",
+	// "Rafal" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,28 +50,40 @@ public class MainActivity extends Activity {
 		final TextView textView9 = (TextView) findViewById(R.id.TextView9);
 		final TextView textView10 = (TextView) findViewById(R.id.TextView10);
 
+		final TextView textView11 = (TextView) findViewById(R.id.TextView11);
+		final TextView textView13 = (TextView) findViewById(R.id.TextView13);
+
+		final TextView textView12 = (TextView) findViewById(R.id.TextView12);
+		final TextView textView14 = (TextView) findViewById(R.id.TextView14);
+
 		buttonGenerate.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 
 				List<String> membersList = getCurrentTeams();
-				if (membersList.size() >= 10) {
-					textView1.setText(membersList.get(0));
-					textView2.setText(membersList.get(1));
-					textView3.setText(membersList.get(2));
-					textView4.setText(membersList.get(3));
-					textView5.setText(membersList.get(4));
+				int s = membersList.size();
 
-					textView6.setText(membersList.get(5));
-					textView7.setText(membersList.get(6));
-					textView8.setText(membersList.get(7));
-					textView9.setText(membersList.get(8));
-					textView10.setText(membersList.get(9));
-				}
+				textView1.setText(checkSize(s, 0) ? membersList.get(0) : "");
+				textView2.setText(checkSize(s, 1) ? membersList.get(1) : "");
+				textView3.setText(checkSize(s, 2) ? membersList.get(2) : "");
+				textView4.setText(checkSize(s, 3) ? membersList.get(3) : "");
+				textView5.setText(checkSize(s, 4) ? membersList.get(4) : "");
+
+				textView6.setText(checkSize(s, 5) ? membersList.get(5) : "");
+				textView7.setText(checkSize(s, 6) ? membersList.get(6) : "");
+				textView8.setText(checkSize(s, 7) ? membersList.get(7) : "");
+				textView9.setText(checkSize(s, 8) ? membersList.get(8) : "");
+				textView10.setText(checkSize(s, 9) ? membersList.get(9) : "");
+
+				textView11.setText(checkSize(s, 10) ? membersList.get(10) : "");
+				textView13.setText(checkSize(s, 11) ? membersList.get(11) : "");
+
+				textView12.setText(checkSize(s, 12) ? membersList.get(12) : "");
+				textView14.setText(checkSize(s, 13) ? membersList.get(13) : "");
 
 			}
 		});
-		
+
 		buttonReload.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -81,18 +93,26 @@ public class MainActivity extends Activity {
 
 	}
 
+	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	private boolean checkSize(int membersListSize, int index) {
+		if (membersListSize > index)
+			return true;
+		return false;
+	}
 
 	private List<String> getCurrentTeams() {
 		List<Integer> randomTab = new ArrayList<Integer>();
 		List<String> currentTeams = new ArrayList<String>();
 		int i = 0;
-		while (i < 10) {
+		while (i < 14) {
 			int tmpVal = randomInt();
 			if (!randomTab.contains(tmpVal)) {
 				randomTab.add(tmpVal);
@@ -101,78 +121,58 @@ public class MainActivity extends Activity {
 		}
 
 		for (Integer k : randomTab) {
-			System.out.print(k + " | ");
+			if (members[k] == null || "".equals(members[k].trim())) {
+				continue;
+			}
+			currentTeams.add(members[k]);
 		}
-		System.out.println(" ");
-
-		int count = 0;
-
-		for (Integer k : randomTab) {
-			// if (count == 5) {
-			// currentTeams.add("========");
-			// }
-			currentTeams.add(members[k - 1]);
-			count++;
-		}
-
-		System.out.println(" ");
-
-		for (String member : currentTeams) {
-			System.out.println(member);
-		}
-
-		readFromFile();
-
 		return currentTeams;
 	}
 
 	private int randomInt() {
-		return (int) (Math.random() * 10 + 1);
+		return (int) (Math.random() * 14);
 	}
-	
-	private void reloadPalyersNames(){
+
+	private void reloadPalyersNames() {
 		members = readFromFile();
 	}
 
 	private static String[] readFromFile() {
 
-		String[] players = new String[10];
+		String[] players = new String[14];
 		try {
 			File heapFile = new File(Environment.getExternalStorageDirectory(),
 					"Players.txt");
 			if (!heapFile.exists()) {
 				heapFile.createNewFile();
 			}
-			
+
 			BufferedReader br = new BufferedReader(new FileReader(heapFile));
 
 			String line = null;
 			int i = 0;
-			while ((line = br.readLine()) != null && i < 10) {
+			while ((line = br.readLine()) != null && i<14) {
 				players[i] = line;
 				i++;
-				System.out.println(line);
 			}
 			br.close();
-			
-//			if (heapFile.canWrite()) {
-//				FileWriter heapFileWritter = new FileWriter(
-//						heapFile.getAbsoluteFile(), true);
-//				BufferedWriter heapBufferWritter = new BufferedWriter(
-//						heapFileWritter);
-//				for (String s : members) {
-//					heapBufferWritter.write(s);
-//					heapBufferWritter.newLine();
-//				}
-//				heapBufferWritter.close();
-//			}
 
-			System.out.println("Done");
+			// Write to file not delete
+			// if (heapFile.canWrite()) {
+			// FileWriter heapFileWritter = new FileWriter(
+			// heapFile.getAbsoluteFile(), true);
+			// BufferedWriter heapBufferWritter = new BufferedWriter(
+			// heapFileWritter);
+			// for (String s : members) {
+			// heapBufferWritter.write(s);
+			// heapBufferWritter.newLine();
+			// }
+			// heapBufferWritter.close();
+			// }
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 
 		return players;
 	}
