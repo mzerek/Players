@@ -1,10 +1,20 @@
 package pl.mzerek.players;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,9 +25,11 @@ import com.example.players.R;
 
 public class MainActivity extends Activity {
 
-	public static final String[] members = { "Robert", "Kamil", "Darek",
-			"Piotrek", "Maciek", "Damian N.", "Arek", "Marek", "Damian M.",
-			"Rafal" };
+	public static String[] members = readFromFile();
+		
+//		{ "Robert", "Kamil", "Darek",
+//			"Piotrek", "Maciek", "Damian N.", "Arek", "Marek", "Damian M.",
+//			"Rafal" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +37,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		Button buttonGenerate = (Button) findViewById(R.id.button1);
+		Button buttonReload = (Button) findViewById(R.id.button2);
 		final TextView textView1 = (TextView) findViewById(R.id.TextView1);
 		final TextView textView2 = (TextView) findViewById(R.id.TextView2);
 		final TextView textView3 = (TextView) findViewById(R.id.TextView3);
@@ -56,6 +69,13 @@ public class MainActivity extends Activity {
 					textView10.setText(membersList.get(9));
 				}
 
+			}
+		});
+		
+		buttonReload.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				reloadPalyersNames();
 			}
 		});
 
@@ -101,10 +121,59 @@ public class MainActivity extends Activity {
 			System.out.println(member);
 		}
 
+		readFromFile();
+
 		return currentTeams;
 	}
 
 	private int randomInt() {
 		return (int) (Math.random() * 10 + 1);
+	}
+	
+	private void reloadPalyersNames(){
+		members = readFromFile();
+	}
+
+	private static String[] readFromFile() {
+
+		String[] players = new String[10];
+		try {
+			File heapFile = new File(Environment.getExternalStorageDirectory(),
+					"Players.txt");
+			if (!heapFile.exists()) {
+				heapFile.createNewFile();
+			}
+			
+			BufferedReader br = new BufferedReader(new FileReader(heapFile));
+
+			String line = null;
+			int i = 0;
+			while ((line = br.readLine()) != null && i < 10) {
+				players[i] = line;
+				i++;
+				System.out.println(line);
+			}
+			br.close();
+			
+//			if (heapFile.canWrite()) {
+//				FileWriter heapFileWritter = new FileWriter(
+//						heapFile.getAbsoluteFile(), true);
+//				BufferedWriter heapBufferWritter = new BufferedWriter(
+//						heapFileWritter);
+//				for (String s : members) {
+//					heapBufferWritter.write(s);
+//					heapBufferWritter.newLine();
+//				}
+//				heapBufferWritter.close();
+//			}
+
+			System.out.println("Done");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+		return players;
 	}
 }

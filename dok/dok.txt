@@ -1,0 +1,3 @@
+http://java67.blogspot.com/2015/01/how-to-get-random-number-between-0-and-1-java.html
+http://stackoverflow.com/questions/10680992/in-avd-emulator-how-to-see-sdcard-folder-and-install-apk-to-avd
+http://stackoverflow.com/questions/16015942/if-file-does-not-exist-create-it-and-write-string-to-it-if-it-does-then-append
